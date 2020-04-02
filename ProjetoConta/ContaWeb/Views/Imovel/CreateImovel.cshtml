@@ -1,0 +1,42 @@
+@model ContaDomain.Entities.Imovel
+
+<div class="form-horizontal">
+    <form action="CreateImovel" method="Post">
+
+        <div class="form-group">
+            <label>Id</label>
+            <input  class="form-control"
+                    type="text" name="id"/>
+        </div>
+
+        <div class="form-group">
+            <label>Identificação</label>
+            <input  class="form-control"
+                    type="text" name="Identificacao"/>
+        </div>
+
+        <div class="form-group">
+            <label>Numero</label>
+            <input  class="form-control"
+                    type="text" name="Numero"/>
+        </div>
+        <div class="form-group">
+            <label>Bairro</label>
+            <input  class="form-control"
+                    type="text" name="Bairro"/>
+        </div>
+        <div class="form-group">
+            <label>Cidade</label>
+            <input  class="form-control"
+                    type="text" name="Cidade"/>
+        </div>
+        <div class="form-group">
+            <label>Estado</label>
+            <input  class="form-control"
+                    type="text" name="Estado"/>
+        </div>
+
+        <input  class="btn btn-primary" 
+                type="submit" value="Salvar"/>
+    </form>
+</div>

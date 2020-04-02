@@ -1,0 +1,65 @@
+@model ContaDomain.Entities.ContaLuz
+
+
+<div class="form-horizontal">
+    <form action="Edit" method="Post">
+        
+        <input hidden type="text" name="id" id="id" value="@Model.id"/>
+
+        <div class="form-group">
+            <label>Data Leitura</label>
+            
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DataLeitura, new { htmlAttributes = new { @class = "form-control"} })
+                <small class="form-text text-muted ">@Html.ValidationMessageFor(model => model.DataLeitura)</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Numero Leitura</label>
+            <input  class="form-control"
+                    type="text" name="NumLeitura"
+                    value="@Model.NumLeitura"/>
+        </div>
+        <div class="form-group">
+            <label>Quantidade de Kw</label>
+            <input  class="form-control"
+                    type="text" name="KwGasto"
+                    value="@Model.KwGasto"/>
+        </div>
+        <div class="form-group">
+            <label>Valor da Conta</label>
+            <input  class="form-control"
+                    type="text" name="ValorAPagar"
+                    value="@Model.ValorAPagar"/>
+        </div>
+        <div class="form-group">
+            <label>Data do Pagamento</label>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DataPagamento, new { htmlAttributes = new { @class = "form-control"} })
+                <small class="form-text text-muted">@Html.ValidationMessageFor(model => model.DataPagamento)</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Media de Consumo</label>
+            <input  class="form-control"
+                    type="text" name="MediaConsumo"
+                    value="@Model.MediaConsumo"/>
+        </div>
+
+        <div  class="form-group">
+            <label for="imovel">Cidade</label>
+            <select class="form-control" name="imovel.id" required>
+                    <option value="" disabled>Selecione a Cidade</option>
+                @foreach(var imovel in ViewBag.ImoveisConta ){
+                    <!option value="@imovel.id" selected="@(@imovel.id == Model.imovel.id)">@imovel.Cidade</!option>
+                }
+            </select>
+        </div>
+
+        <input  class="btn btn-primary" 
+                type="submit" value="Salvar"/>
+
+    </form>
+</div>

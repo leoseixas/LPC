@@ -1,0 +1,42 @@
+@model IEnumerable<ContaDomain.Entities.Imovel>
+
+
+<a href="Imovel/CreateImovel" class="btn btn-primary">Novo Imovel</a>
+</br></br>
+
+<div class="container">
+    <div class="row"> 
+        <div class="col-sm-12" >  
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Identificação</th>
+                        <th>Numero</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>                        
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+
+                @foreach(var Imoveis in Model)
+                {
+                    <tr>
+                        <td>@Imoveis.id</td>
+                        <td>@Imoveis.Identificacao</td>
+                        <td>@Imoveis.Numero</td>
+                        <td>@Imoveis.Bairro</td>
+                        <td>@Imoveis.Cidade</td>
+                        <td>@Imoveis.Estado</td>
+                        <td><a class="btn btn-danger"
+                            href="Imovel/Delete/@Imoveis.id">Delete</a> </td>
+                        <td><a class="btn btn-primary" 
+                            href="Imovel/Edit/@Imoveis.id">Editar</a> </td>
+                        
+                    </tr>
+                }
+            </table>
+        </div>   
+    </div> 
+</div>

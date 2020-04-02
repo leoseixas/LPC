@@ -1,0 +1,106 @@
+@model IEnumerable<ContaDomain.Entities.ContaLuz>
+
+</br></br>
+<a href="Conta/Create" class="btn btn-primary">Nova Conta</a>
+</br></br>
+
+<div class="container">
+    <div class="row"> 
+        <div class="col-sm-12" >  
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Data Leitura</th>
+                        <th>Numero Leitura</th>
+                        <th>Quantidade Kw</th>
+                        <th>Valor Conta</th>
+                        <th>Data Pagamento</th>
+                        <th>Media de Consumo</th>
+                        <th>Cidade</th>
+                        <th>Deletar</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.DataLeitura</td>
+                        <td>@item.NumLeitura</td>
+                        <td>@item.KwGasto</td>
+                        <td>@item.ValorAPagar</td>
+                        <td>@item.DataPagamento</td>
+                        <td>@item.MediaConsumo</td>
+                        <td>@item.imovel.Cidade</td>
+                        <td><a class="btn btn-danger"
+                            href="Conta/Delete/@item.id">Delete</a> </td>
+                        <td><a class="btn btn-primary" 
+                            href="Conta/Edit/@item.id">Editar</a> </td>
+                    </tr>
+                }
+            </table>
+        </div>  
+        <div class="col-sm-12">
+            <h3>Maior Consumo</h3>
+            <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Data Leitura</th>
+                    <th>Numero Leitura</th>
+                    <th>Quantidade Kw</th>
+                    <th>Valor Conta</th>
+                    <th>Data Pagamento</th>
+                    <th>Media de Consumo</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            @if(ViewBag.maiorConsumo != null)
+                {      
+                <tr>
+                   
+                    <td>@ViewBag.maiorConsumo.id</td>
+                    <td>@ViewBag.maiorConsumo.DataLeitura</td>
+                    <td>@ViewBag.maiorConsumo.NumLeitura</td>
+                    <td>@ViewBag.maiorConsumo.KwGasto</td>
+                    <td>@ViewBag.maiorConsumo.ValorAPagar</td>
+                    <td>@ViewBag.maiorConsumo.DataPagamento</td>
+                    <td>@ViewBag.maiorConsumo.MediaConsumo</td>
+                    <td>@ViewBag.maiorConsumo.imovel.Cidade</td>
+                </tr>
+                }
+        </table>
+        </div>    
+        <div class="col-sm-12">
+            <h3>Menor Consumo</h3>
+            <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Data Leitura</th>
+                    <th>Numero Leitura</th>
+                    <th>Quantidade Kw</th>
+                    <th>Valor Conta</th>
+                    <th>Data Pagamento</th>
+                    <th>Media de Consumo</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            @if(ViewBag.maiorConsumo != null)
+                { 
+                <tr>
+                    <td>@ViewBag.menorConsumo.id</td>
+                    <td>@ViewBag.menorConsumo.DataLeitura</td>
+                    <td>@ViewBag.menorConsumo.NumLeitura</td>
+                    <td>@ViewBag.menorConsumo.KwGasto</td>
+                    <td>@ViewBag.menorConsumo.ValorAPagar</td>
+                    <td>@ViewBag.menorConsumo.DataPagamento</td>
+                    <td>@ViewBag.menorConsumo.MediaConsumo</td>
+                    <td>@ViewBag.menorConsumo.imovel.Cidade</td>
+                </tr>
+                }
+        </table>
+        </div>      
+    </div> 
+</div>

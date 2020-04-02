@@ -1,0 +1,60 @@
+@model ContaDomain.Entities.ContaLuz
+
+<div class="form-horizontal">
+    <form action="Create" method="Post">
+
+        <div class="form-group">
+            <label>Id</label>
+            <input  class="form-control"
+                    type="text" name="id"/>
+        </div>
+
+        <div class="form-group">
+            <label>Data Leitura</label>
+            <input  class="form-control"
+                    type="date" name="DataLeitura"/>
+        </div>
+
+        <div class="form-group">
+            <label>Numero Leitura</label>
+            <input  class="form-control"
+                    type="text" name="NumLeitura"/>
+        </div>
+        <div class="form-group">
+            <label>Quantidade de Kw</label>
+            <input  class="form-control"
+                    type="text" name="KwGasto"/>
+        </div>
+        <div class="form-group">
+            <label>Valor da Conta</label>
+            <input  class="form-control"
+                    type="text" name="ValorAPagar"/>
+        </div>
+        <div class="form-group">
+            <label>Data do Pagamento</label>
+            <input  class="form-control"
+                    type="date" name="DataPagamento"/>
+        </div>
+
+        <div class="form-group">
+            <label>Media de Consumo</label>
+            <input  class="form-control"
+                    type="text" name="MediaConsumo"/>
+        </div>
+
+        <div class="form-group"> 
+            <label for="imovel">Cidade</label>
+            <select class="form-control" name="imovel.id" required>
+                <option value="" disabled selected>Selecione o Imovel</option>
+            @foreach(var imovel in ViewBag.ImoveisConta)
+            {
+                <option value="@imovel.id">@imovel.id | @imovel.Cidade</option>
+            }
+            </select>   
+
+        </div>
+
+        <input  class="btn btn-primary" 
+                type="submit" value="Salvar"/>
+    </form>
+</div>
